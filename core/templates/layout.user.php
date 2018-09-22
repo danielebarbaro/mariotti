@@ -77,7 +77,12 @@
 					</div>
 					<div id="expanddiv">
 					<ul>
-					<?php foreach ($_['settingsnavigation'] as $entry):?>
+					<?php
+                    foreach ($_['settingsnavigation'] as $entry):
+                        if(strpos($entry['icon'], 'help') !== false) {
+                            continue;
+                        }
+                        ?>
 						<li>
 							<a href="<?php print_unescaped($entry['href']); ?>"
 								<?php if ($entry["active"]): ?> class="active"<?php endif; ?>>
