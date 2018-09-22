@@ -20,21 +20,21 @@
 
 class OC_Theme {
 
-	/**
-	 * Returns the base URL
-	 * @return string URL
-	 */
-	public function getBaseUrl() {
-		return 'https://owncloud.org';
-	}
+    /**
+     * Returns the base URL
+     * @return string URL
+     */
+    public function getBaseUrl() {
+        return 'http://www.mariotti.it';
+    }
 
-	/**
-	 * Returns the URL where the sync clients are listed
-	 * @return string URL
-	 */
-	public function getSyncClientUrl() {
-		return 'https://owncloud.org/install';
-	}
+    /**
+     * Returns the URL where the sync clients are listed
+     * @return string URL
+     */
+    public function getSyncClientUrl() {
+        return 'https://owncloud.org/install';
+    }
 
 	/**
 	 * Returns the URL to the App Store for the iOS Client
@@ -68,121 +68,107 @@ class OC_Theme {
 		return 'https://doc.owncloud.org';
 	}
 
-	/**
-	 * Returns the title
-	 * @return string title
-	 */
-	public function getTitle() {
-		return 'Custom Cloud';
-	}
+    /**
+     * Returns the title
+     * @return string title
+     */
+    public function getTitle() {
+        return 'Mariotti';
+    }
 
-	/**
-	 * Returns the short name of the software
-	 * @return string title
-	 */
-	public function getName() {
-		return 'Custom Cloud';
-	}
+    /**
+     * Returns the short name of the software
+     * @return string title
+     */
+    public function getName() {
+        return 'Mariotti';
+    }
 
-	/**
-	 * Returns the short name of the software containing HTML strings
-	 * @return string title
-	 */
-	public function getHTMLName() {
-		return 'Custom Cloud';
-	}
+    /**
+     * Returns the short name of the software containing HTML strings
+     * @return string title
+     */
+    public function getHTMLName() {
+        return 'Mariotti';
+    }
 
-	/**
-	 * Returns entity (e.g. company name) - used for footer, copyright
-	 * @return string entity name
-	 */
-	public function getEntity() {
-		return 'Custom Cloud Co.';
-	}
+    /**
+     * Returns entity (e.g. company name) - used for footer, copyright
+     * @return string entity name
+     */
+    public function getEntity() {
+        return 'Mariotti';
+    }
 
-	/**
-	 * Returns slogan
-	 * @return string slogan
-	 */
-	public function getSlogan() {
-		return 'Your custom cloud, personalized for you!';
-	}
+    /**
+     * Returns slogan
+     * @return string slogan
+     */
+    public function getSlogan() {
+        return 'Compact Forklift Solutions';
+    }
 
-	/**
-	 * Returns logo claim
-	 * @return string logo claim
-	 */
-	public function getLogoClaim() {
-		return '';
-	}
+    /**
+     * Returns logo claim
+     * @return string logo claim
+     */
+    public function getLogoClaim() {
+        return '';
+    }
 
-	public function getPrivacyPolicyUrl() {
-		try {
-			return \OC::$server->getConfig()->getAppValue('core', 'legal.privacy_policy_url', '');
-		} catch (\Exception $e) {
-			return '';
-		}
-	}
-	
-	public function getImprintUrl() {
-		try {
-			return \OC::$server->getConfig()->getAppValue('core', 'legal.imprint_url', '');
-		} catch (\Exception $e) {
-			return '';
-		}
-	}
+    public function getPrivacyPolicyUrl() {
+        try {
+            return \OC::$server->getConfig()->getAppValue('core', 'legal.privacy_policy_url', '');
+        } catch (\Exception $e) {
+            return '';
+        }
+    }
 
-	public function getL10n() {
-		return \OC::$server->getL10N('core');
-	}
-	
-	/**
-	 * Returns short version of the footer
-	 * @return string short footer
-	 */
-	public function getShortFooter() {
-		$l10n = $this->getL10n();
-		$footer = '© 2018 <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
-			'<br/>' . $this->getSlogan();
-		if ($this->getImprintUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="' . $this->getImprintUrl() . '" target="_blank">' . $l10n->t('Imprint') . '</a></span>';
-		}
+    public function getImprintUrl() {
+        try {
+            return \OC::$server->getConfig()->getAppValue('core', 'legal.imprint_url', '');
+        } catch (\Exception $e) {
+            return '';
+        }
+    }
 
-		if ($this->getPrivacyPolicyUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="'. $this->getPrivacyPolicyUrl() .'" target="_blank">'. $l10n->t('Privacy Policy')	 .'</a></span>';
-		}
-		return $footer;
-	}
+    public function getL10n() {
+        return \OC::$server->getL10N('core');
+    }
 
-	/**
-	 * Returns long version of the footer
-	 * @return string long footer
-	 */
-	public function getLongFooter() {
-		$l10n = $this->getL10n();
-		$footer = '© 2018 <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
-			'<br/>' . $this->getSlogan();
-		if ($this->getImprintUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="' . $this->getImprintUrl() . '" target="_blank">' . $l10n->t('Imprint') . '</a></span>';
-		}
+    /**
+     * Returns short version of the footer
+     * @return string short footer
+     */
+    public function getShortFooter() {
+        $footer = '© 2015 - ' . date('Y') . ' <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
+            '<br/>' . $this->getSlogan();
 
-		if ($this->getPrivacyPolicyUrl() !== '') {
-			$footer .= '<span class="nowrap"> | <a href="'. $this->getPrivacyPolicyUrl() .'" target="_blank">'. $l10n->t('Privacy Policy') .'</a></span>';
-		}
-		return $footer;
-	}
+        return $footer;
+    }
+
+    /**
+     * Returns long version of the footer
+     * @return string long footer
+     */
+    public function getLongFooter() {
+        $footer = '© 2015 - ' . date('Y') . ' <a href="'.$this->getBaseUrl().'" target="_blank\">'.$this->getEntity().'</a>'.
+            '<br/>' . $this->getSlogan();
+
+        return $footer;
+    }
 
 	public function buildDocLinkToKey($key) {
 		return $this->getDocBaseUrl() . '/server/10.0/go.php?to=' . $key;
 	}
 
 
-	/**
-	 * Returns mail header color
-	 * @return string
-	 */
-	public function getMailHeaderColor() {
-		return '#745bca';
-	}
+    /**
+     * Returns mail header color
+     * @return string
+     */
+    public function getMailHeaderColor() {
+        return '#e00019';
+    }
 
 }
